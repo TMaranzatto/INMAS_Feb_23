@@ -20,7 +20,7 @@ class Airplane:
             climbable = self.seating[currentRow][:self.cols//2:-1]
         else:
             climbable = self.seating[currentRow][self.cols//2:]
-        time = sum(climbable[:desiredSeat])
+        time = 1 + 2 * sum(climbable[:desiredSeat])
         
         return [time, passenger]
 
@@ -28,7 +28,6 @@ class Airplane:
         #to start, move one timestep at a time
         #then we can generalize later
         for currentRow, cell in reversed(list(enumerate(aisle))):
-            print(cell)
             if cell == None:
                 continue
             #ASSUME PASSENGERS ARE TUPLES OF SEAT LOCATIONS

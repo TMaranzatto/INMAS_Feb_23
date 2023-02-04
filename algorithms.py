@@ -29,7 +29,7 @@ def sinp (nOfRows, nOfColumns):
 	#print(boardingQueue)
 	return boardingQueue
 
-'''
+
 # the order starts with window seats and moves to aisle
 # for each group, order is random
 def wma(nOfRows, nOfColumns):
@@ -46,14 +46,14 @@ def wma(nOfRows, nOfColumns):
 	
 
 	for group in columnGroups:
-	    groupSeats = []
+		groupSeats = []
 		for column in group:
 			for row in range(nOfRows):
-	            groupSeats.append((row, column))
-	    groupSeats = random.sample(groupSeats, len(groupSeats))
-	    boardingQueue.append(groupSeats)
-	return boardingQueue
-'''
+				groupSeats.append((row, column))
+		groupSeats = random.sample(groupSeats, len(groupSeats))
+		boardingQueue.extend(groupSeats)
+		return boardingQueue
+
 
 # completely random
 def randomBoarding (nOfRows, nOfColumns):
@@ -131,6 +131,3 @@ def ftb(nOfRows, nOfColumns, nOfGroups = 3):
 		groupSeats = random.sample(groupSeats, len(groupSeats))
 		boardingQueue.extend(groupSeats)
 	return boardingQueue
-
-
-

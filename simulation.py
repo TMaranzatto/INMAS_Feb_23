@@ -72,9 +72,6 @@ class Airplane:
             totalTime += 1
         return totalTime
 
-
-
-
 #returns the mean of n tests
 def testAlgo(n, algo, algoName):
     A = Airplane(30, 6)
@@ -86,11 +83,9 @@ if __name__ == "__main__":
     testAlgo(10,alg.randomBoarding, "Random")
     testAlgo(10, alg.btf, "Back to Front")
     testAlgo(10, alg.ftb, "Front to Back")
-    testAlgo(10, alg.sinp, "Window to Aisle")
+    testAlgo(10, alg.sinp, "Super Ideal not Practical")
+    testAlgo(10, alg.wma, "Window to Aisle")
     testAlgo(10, alg.southwest, "Southwest")
-
-
-
 
     from visulization import visulization
     A = Airplane(30, 6)

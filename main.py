@@ -4,7 +4,6 @@ Created on Fri Jan  3 20:04:19 2020
 @author: gaurav
 """
 
-import scipy as sci
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -116,7 +115,7 @@ def AssignSeats(rq,cq,assign_type,ac):
         #Make an array [0,0,1,1,2,2,...]
         rows_1=np.arange(0,n_rows,1)
         rows_2=np.arange(0,n_rows,1)
-        rows=sci.ravel(np.column_stack((rows_1,rows_2)))
+        rows=np.ravel(np.column_stack((rows_1,rows_2)))
         
         w_seats=np.column_stack((rows,window))
         w_group1=w_seats[:32,:]
@@ -397,4 +396,4 @@ if(ac.repeat==1):
     #Play and store the animation
     mov=anim.ArtistAnimation(fig,im,interval=180)
     plt.show()
-    mov.save("Airplane_Boarding.gif".format(method))
+    mov.save("Airplane_Boarding.png".format(method))

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def visulization(stages):
-    color = colors.ListedColormap("red", "white")
+    color = colors.ListedColormap(["white", "red"])
     bounds = [0,1]
     norm = colors.BoundaryNorm(bounds, color.N)
     images = stages
@@ -31,12 +31,3 @@ def visulization(stages):
     
     mov=anim.ArtistAnimation(fig,im,interval=180)
     plt.show()
-'''
-stages =[]
-matrix1 = np.zeros((20,10))
-matrix2 = np.ones((20,10)) 
-stages.append(matrix1)
-stages.append(matrix2)
-stages.append(matrix2)
-visulization(stages)
-'''

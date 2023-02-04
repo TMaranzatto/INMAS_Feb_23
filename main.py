@@ -322,6 +322,7 @@ def BoardFlight(ac):
         if(n_iter%iters_per_snap==0 and ac.repeat==1):
             snap=ac.seats.copy()
             snap=np.insert(snap,3,ac.aisle_q,axis=1)
+            print(snap)
             ac.img_list.append(snap)
         
 

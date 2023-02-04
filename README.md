@@ -1,8 +1,20 @@
 # INMAS_Feb_23
 Airplane boarding simulation
 
-## Task1: Boarding Simulation
+## Basic Setup:
 
-## Task2: Testing the algorithm
+We use a matrix to represent the seat and when passangers board the airplane, it will change the matrix entries from 0 to 1.
 
-## Test3: Metrics
+## Functions we have:
+
+`initial_airplane(width, depth, groups)` we create a airplane with specified structure.
+
+`random_on_board()` we will get an array when passagers come boarding in a random order.
+
+`group_on_board()` we will get an array when passagers come boarding in what order.
+
+`seat_passagers(width, depth, matrix)` return the time needed for a passager seating at width, depth to find and seat. 
+
+`visualize_simulation()` we will visualize the simulation using matplot.
+
+

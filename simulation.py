@@ -13,7 +13,7 @@ class Airplane:
 
     def rowHelper(self, currentRow, passenger):
         #Time to get to seat = sum(people to move over)
-        desiredSeat = passenger[0]
+        desiredSeat = passenger[1]
         climbable = None
         if desiredSeat < self.cols//2:
             desiredSeat = self.cols - (desiredSeat + 1)

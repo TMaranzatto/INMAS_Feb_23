@@ -1,5 +1,5 @@
 from random import shuffle
-
+import numpy as np
 class Airplane:
     def __init__(self, n_rows, n_cols):
         self.rows = n_rows
@@ -7,7 +7,7 @@ class Airplane:
 
         #index seating by seating[row][col]
         self.seating = [[0 for _ in range(n_cols)] for _ in range(n_rows)]
-        self.currentState = [[0 for _ in range(n_cols + 1)] for _ in range(n_rows)]
+        self.sateHistory = []
 
     def rowHelper(self, currentRow, passenger):
         #move people out of the way if they need to be
@@ -32,6 +32,9 @@ class Airplane:
 
         if aisle[0] == None and len(boardQueue) != 0:
             aisle[0] = boardQueue.pop(0)
+        
+        stateMatrix = np.array(self.seating)
+        self.sateHistory.append(stateMatrix)
         return boardQueue, aisle
 
     
@@ -56,4 +59,7 @@ def boardRandom(n, m):
 
 A = Airplane(4, 2)
 A.simulateBoarding(boardRandom)
-print(A.seating)
+
+
+from visulization import visulization
+visulization(A.sateHistory)

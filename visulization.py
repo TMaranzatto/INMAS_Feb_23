@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def visulization(stages):
-    color = (colors.ListedColormap(["white", "red"]).with_extremes(over='0.35', under='0.75'))
+    color = (colors.ListedColormap(["white", "green"]).with_extremes(over='0.35', under='0.75'))
     bounds = [0,1, 2]
     norm = colors.BoundaryNorm(bounds, color.N)
     images = stages

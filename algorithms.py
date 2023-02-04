@@ -111,8 +111,7 @@ def btf(nOfRows, nOfColumns, nOfGroups = 3):
 			for row in boardingGroup:
 				groupSeats.append((row, column))
 		groupSeats = random.sample(groupSeats, len(groupSeats))
-		boardingQueue.append(groupSeats)
-	print(boardingQueue)
+		boardingQueue.extend(groupSeats)
 	return boardingQueue
 
 
@@ -130,7 +129,7 @@ def ftb(nOfRows, nOfColumns, nOfGroups = 3):
 			for row in boardingGroup:
 				groupSeats.append((row, column))
 		groupSeats = random.sample(groupSeats, len(groupSeats))
-		boardingQueue.append(groupSeats)
+		boardingQueue.extend(groupSeats)
 	return boardingQueue
 
 

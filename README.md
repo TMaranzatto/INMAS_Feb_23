@@ -9,12 +9,12 @@ We use a matrix to represent the seat and when passangers board the airplane, it
 
 `initial_airplane(width, depth, groups)` we create a airplane with specified structure.
 
-`random_on_board()` we will get an array when passagers come boarding in a random order.
+`random_on_board(width, depth)` we will get an array when passagers come boarding in a random order.
 
-`group_on_board()` we will get an array when passagers come boarding in what order.
+`group_on_board(width, depth)` we will get an array when passagers come boarding in what order.
 
-`seat_passagers(width, depth, matrix)` return the time needed for a passager seating at width, depth to find and seat. 
+`seat_passagers(row, column, matrix)` return the time needed for a passager seating at row, column to find and seat. 
 
-`visualize_simulation()` we will visualize the simulation using matplot.
+`visualize_simulation(model)` we will visualize the simulation of the model we use using matplot.
 
 

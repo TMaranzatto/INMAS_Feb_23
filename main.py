@@ -397,4 +397,4 @@ if(ac.repeat==1):
     #Play and store the animation
     mov=anim.ArtistAnimation(fig,im,interval=180)
     plt.show()
-    mov.save("Airplane_Boarding.png".format(method))
+    mov.save("Airplane_Boarding.gif".format(method))

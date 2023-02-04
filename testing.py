@@ -39,6 +39,12 @@ def test_nearly_empty():
 			continue
 		break
 	assert not too_long
-	
+
+def main():
+	test_nearly_empty()
+	test_next()
+
+if __name__ == '__main__':
+	main()
 			
 	

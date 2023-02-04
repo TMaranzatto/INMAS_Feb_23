@@ -59,8 +59,6 @@ class Airplane:
         self.sateHistory.append(np.array(tempSeat))
         return boardQueue, aisle
 
-    
-
     def simulateBoarding(self, boardingProcedure):
         boardQueue = boardingProcedure(self.rows, self.cols)
         aisle = [None for _ in range(self.rows)]
@@ -75,14 +73,26 @@ class Airplane:
         return totalTime
 
 
-def boardRandom(n, m):
-    seats = [(i,j) for i in range(n) for j in range(m)]
-    shuffle(seats)
-    return seats
-
-A = Airplane(40, 6)
-A.simulateBoarding(boardRandom)
 
 
-from visulization import visulization
-visulization(A.sateHistory)
+#returns the mean of n tests
+def testAlgo(n, algo, algoName):
+    A = Airplane(30, 6)
+    avg = sum([A.simulateBoarding(algo) for _ in range(n)])/n
+    print(f"The average seating time for {algoName} is {avg} steps for {n} samples")
+
+if __name__ == "__main__":
+    import algorithms as alg
+    testAlgo(10,alg.randomBoarding, "Random")
+    testAlgo(10, alg.btf, "Back to Front")
+    testAlgo(10, alg.ftb, "Front to Back")
+    testAlgo(10, alg.sinp, "Window to Aisle")
+    testAlgo(10, alg.southwest, "Southwest")
+
+
+
+
+    from visulization import visulization
+    A = Airplane(30, 6)
+    A.simulateBoarding(alg.randomBoarding)
+    visulization(A.sateHistory)

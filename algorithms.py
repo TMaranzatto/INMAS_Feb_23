@@ -24,11 +24,12 @@ def sinp (nOfRows, nOfColumns):
 
 	for column in columnOrder:
 		for row in reversed(range(nOfRows)):
-			boardingQueue.append((column, row))
+			boardingQueue.append((row, column))
 
+	#print(boardingQueue)
 	return boardingQueue
 
-
+'''
 # the order starts with window seats and moves to aisle
 # for each group, order is random
 def wma(nOfRows, nOfColumns):
@@ -38,28 +39,28 @@ def wma(nOfRows, nOfColumns):
 	seatGroups = []
 
 	for i in range(int(nOfColumns / 2)):
-	    group = []
-	    group.append(i)
-	    group.append(nOfColumns-1-i)
-	    columnGroups.append(group)
+		group = []
+		group.append(i)
+		group.append(nOfColumns-1-i)
+		columnGroups.append(group)
 	
 
 	for group in columnGroups:
 	    groupSeats = []
-	    for column in group: 
-	        for row in range(nOfRows):
-	            groupSeats.append((column, row))
+		for column in group:
+			for row in range(nOfRows):
+	            groupSeats.append((row, column))
 	    groupSeats = random.sample(groupSeats, len(groupSeats))
 	    boardingQueue.append(groupSeats)
 	return boardingQueue
-
+'''
 
 # completely random
 def randomBoarding (nOfRows, nOfColumns):
 	boardingQueue = []
 	for column in range(nOfColumns):
 		for row in range(nOfRows):
-			boardingQueue.append((column, row))
+			boardingQueue.append((row, column))
 	boardingQueue = random.sample(boardingQueue,len(boardingQueue))
 	return boardingQueue
 
@@ -79,11 +80,11 @@ def southwest (nOfRows, nOfColumns):
 	for column in range(nOfColumns):
 		for row in range(nOfRows):
 			if (column in windowColumns):
-				windowSeats.append((column, row))
+				windowSeats.append((row, column))
 			elif (column in aisleColumns):
-				aisleSeats.append((column, row))
+				aisleSeats.append((row, column))
 			else:
-				middleSeats.append((column, row))
+				middleSeats.append((row, column))
 
 
 
@@ -98,7 +99,7 @@ def split(nOfRows, nOfGroups):
 
 # rows are divided into boarding groups
 # groups in the back boards first
-def btf(nOfRows, nOfColumns, nOfGroups):
+def btf(nOfRows, nOfColumns, nOfGroups = 3):
 
 	groupedRows = split(nOfRows, nOfGroups)
 	boardingQueue = []
@@ -108,15 +109,16 @@ def btf(nOfRows, nOfColumns, nOfGroups):
 		groupSeats = []
 		for column in range(nOfColumns):
 			for row in boardingGroup:
-				groupSeats.append((column, row))
+				groupSeats.append((row, column))
 		groupSeats = random.sample(groupSeats, len(groupSeats))
 		boardingQueue.append(groupSeats)
+	print(boardingQueue)
 	return boardingQueue
 
 
 # rows are divided into boarding groups
 # groups in the front boards first
-def ftb(nOfRows, nOfColumns, nOfGroups):
+def ftb(nOfRows, nOfColumns, nOfGroups = 3):
 
 	groupedRows = split(nOfRows, nOfGroups)
 	boardingQueue = []
@@ -126,7 +128,7 @@ def ftb(nOfRows, nOfColumns, nOfGroups):
 		groupSeats = []
 		for column in range(nOfColumns):
 			for row in boardingGroup:
-				groupSeats.append((column, row))
+				groupSeats.append((row, column))
 		groupSeats = random.sample(groupSeats, len(groupSeats))
 		boardingQueue.append(groupSeats)
 	return boardingQueue

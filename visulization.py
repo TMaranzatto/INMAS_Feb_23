@@ -4,7 +4,7 @@ from matplotlib import colors
 import matplotlib.pyplot as plt
 import numpy as np
 
-def visulization(stages):
+def visulization(stages, filename=None):
     color = (colors.ListedColormap(["white", "green"]).with_extremes(over='0.35', under='0.75'))
     bounds = [0,1, 2]
     norm = colors.BoundaryNorm(bounds, color.N)
@@ -31,3 +31,5 @@ def visulization(stages):
     
     mov=anim.ArtistAnimation(fig,im,interval=180)
     plt.show()
+    if filename is not None:
+        mov.save(filename)

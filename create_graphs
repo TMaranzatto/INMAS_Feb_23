@@ -1,0 +1,4 @@
+
+
+def create_gif(name, rows, cols, alg):
+	

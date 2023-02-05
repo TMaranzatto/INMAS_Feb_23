@@ -52,7 +52,7 @@ def wma(nOfRows, nOfColumns):
 				groupSeats.append((row, column))
 		groupSeats = random.sample(groupSeats, len(groupSeats))
 		boardingQueue.extend(groupSeats)
-		return boardingQueue
+	return boardingQueue
 
 
 # completely random
